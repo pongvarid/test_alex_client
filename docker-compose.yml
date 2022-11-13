@@ -1,0 +1,10 @@
+version: "3"
+services:
+    client:
+        restart: always
+        container_name: alex-client
+        image: nginx
+        ports:
+            - 3005:80
+        volumes:
+            - ./:/usr/share/nginx/html
