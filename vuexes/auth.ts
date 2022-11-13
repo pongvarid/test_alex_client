@@ -158,7 +158,7 @@ class AuthModule extends VuexModule {
 
     public async logout() {
         try {
-            await this.cookies.remove('token')
+            await this.cookies.keys().forEach((cookie:any) => this.cookies.remove(cookie))
             await Core.postHttp('/api/auth/v1/logout/', {})
             await location.reload()
         } catch (error) {
